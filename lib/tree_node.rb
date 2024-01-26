@@ -16,4 +16,8 @@ class PolyTreeNode
     new_child.parent = self
     self.children << new_child unless self.children.include?(new_child)
   end
+  def remove_child(child)
+    raise "cannot remove unrelated node" unless children.include?(child)
+    child.parent = nil
+  end
 end
