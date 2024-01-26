@@ -20,4 +20,12 @@ class PolyTreeNode
     raise "cannot remove unrelated node" unless children.include?(child)
     child.parent = nil
   end
+  def dfs(value)
+    return self if self.value == value
+    children.each do |child|
+      found = child.dfs(value)
+      return found if found
+    end
+    nil
+  end
 end
