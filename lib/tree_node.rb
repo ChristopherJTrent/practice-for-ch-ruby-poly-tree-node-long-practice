@@ -10,4 +10,10 @@ class PolyTreeNode
     @parent = new_parent 
     new_parent.children << self if new_parent && !new_parent.children.include?(self) 
   end
+  def add_child(new_child)
+    # should call new_child.parent = <something>
+    # should make sure that it's not adding a duplicate child
+    new_child.parent = self
+    self.children << new_child unless self.children.include?(new_child)
+  end
 end
